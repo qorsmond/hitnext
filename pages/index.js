@@ -12,7 +12,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({allPostsData}) {
+export default function Home({ allPostsData }) {
   return (
     <div className="container">
       <Head>
@@ -20,7 +20,12 @@ export default function Home({allPostsData}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
+
       <main>
+
+
+
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js bra!</a>
         </h1>
@@ -67,7 +72,9 @@ export default function Home({allPostsData}) {
         <ul>
           {allPostsData.map(({ id, date, title }) => (
             <li key={id}>
-              {title}
+              <Link href="/posts/[id]" as={`/posts/${id}`}>
+                <a>{title}</a>
+              </Link>
               <br />
               {id}
               <br />
@@ -75,6 +82,7 @@ export default function Home({allPostsData}) {
             </li>
           ))}
         </ul>
+
       </section>
 
       <footer>
